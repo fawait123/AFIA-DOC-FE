@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from 'assets/logo.png'
 import Auth from './modal/Auth'
 
@@ -26,7 +26,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="bg-white shadow-sm border-b">
       {({ open }) => (
         <>
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-24">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                         {/* Mobile menu button*/}
@@ -39,7 +39,7 @@ export default function Navbar() {
                         )}
                         </Disclosure.Button>
                     </div>
-                    <div className="flex flex-1 items-center ml-12 sm:items-stretch sm:justify-start">
+                    <div className="flex flex-1 items-center ml-12 sm:-ml-4 sm:items-stretch sm:justify-start">
                         <div className="flex flex-shrink-0 items-center space-x-1">
                             <img
                                 className="block h-8 w-auto lg:hidden"
@@ -74,7 +74,7 @@ export default function Navbar() {
                             </div>
                         </div>
                     </div>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-0 sm:pr-1">
                         <button
                         type="button"
                         onClick={() => setLogin(true)}

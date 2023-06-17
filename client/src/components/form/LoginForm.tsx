@@ -29,25 +29,32 @@ export default function LoginForm({ visible }: LoginFormProps) {
         })
     }
     
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) : void => {
-        e.preventDefault()
-        fetch('url_target', {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+        e.preventDefault();
+        try {
+          const response = await fetch('https://reqres.in/api/login', {
             method: 'POST',
-            body: JSON.stringify(state.user),
             headers: {
-                'Content-Type': 'application/json',
+              'Content-Type': 'application/json',
             },
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            // Handle respons dari server
-            console.log(data);
-        })
-        .catch((error) => {
-            // Handle error
-            console.error('Error:', error);
-        });
-    }
+            body: JSON.stringify(state.user),
+          });
+    
+          const data = await response.json();
+    
+          if (response.ok) {
+            const token = data.token;
+            localStorage.setItem('token', token);
+            alert(token)
+            console.log('Token stored in local storage:', token);
+            // Perform any other actions
+          } else {
+            console.error('Login failed:', data.error);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+    };
 
   if (!visible) return null
 
@@ -62,13 +69,13 @@ export default function LoginForm({ visible }: LoginFormProps) {
             <form className="space-y-6" action="#" method="POST" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                        Email
+                        Username
                     </label>
                     <div className="mt-2">
                         <input
                         id="email"
                         name="email"
-                        type="email"
+                        type="text"
                         value={state.user.email}
                         onChange={handleChange}
                         autoComplete="email"
@@ -84,7 +91,7 @@ export default function LoginForm({ visible }: LoginFormProps) {
                         Password
                         </label>
                         <div className="text-sm">
-                        <a href="#" className="font-semibold text-[#4650c0] hover:text-[#4650c0]">
+                        <a href="/" className="font-semibold text-[#4650c0] hover:text-[#4650c0]">
                             Lupa password?
                         </a>
                         </div>
