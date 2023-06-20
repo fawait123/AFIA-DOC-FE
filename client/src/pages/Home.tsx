@@ -1,5 +1,6 @@
 import Footer from 'components/Footer'
 import Navbar from 'components/Navbar'
+import CardCategory from 'components/card/CardCategory'
 import React from 'react'
 
 export default function Home() {
@@ -40,9 +41,21 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <div className='bg-white w-full py-4 px-4 sm:py-8 sm:px-32 space-y-10'>
-      <div className='bg-gray-100 w-full h-72 sm:h-96 rounded-lg'>
-
+    <div className='bg-white w-full py-4 px-4 sm:py-8 sm:px-32 space-y-4'>
+      <span className='text-2xl font-semibold text-slate-800'>Layanan Kesehatan</span>
+      <div className='bg-gray-100 w-full h-72 sm:h-auto rounded-lg'>
+        <div className='grid grid-cols-10 gap-2'>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+          <CardCategory/>
+        </div>
       </div>
       <div className='w-full space-y-4'>
         <div className='w-full flex justify-between items-center'>

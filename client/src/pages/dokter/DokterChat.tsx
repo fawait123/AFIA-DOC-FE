@@ -1,8 +1,8 @@
-import DokterNavbar from "components/DokterNavbar"
-import DokterSidebar from "components/DokterSidebar"
-import QueueTable from "./QueueTable"
+import DokterNavbar from 'components/DokterNavbar'
+import DokterSidebar from 'components/DokterSidebar'
+import Chat from './Chat'
 
-function DokterQueue() {
+export default function DokterChat() {
   return (
     <>
     <div className="w-full grid grid-cols-12">
@@ -13,8 +13,8 @@ function DokterQueue() {
         </div>
         <div className="col-span-9">
             <div className="w-full h-screen p-4">
-                <div className="w-full h-full bg-white rounded-lg shadow-sm p-8 overflow-hidden">
-                  <QueueTable />
+                <div className="w-full h-full bg-white rounded-lg shadow-sm">
+                    <Chat />
                 </div>
             </div>
         </div>
@@ -22,5 +22,3 @@ function DokterQueue() {
     </>
   )
 }
-
-export default DokterQueue

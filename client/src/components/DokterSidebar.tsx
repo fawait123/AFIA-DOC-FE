@@ -1,10 +1,10 @@
-import { ArrowRightOnRectangleIcon, CalendarDaysIcon, HomeIcon, QueueListIcon } from '@heroicons/react/24/outline';
+import { ArrowRightOnRectangleIcon, CalendarDaysIcon, ChatBubbleLeftIcon, HomeIcon, QueueListIcon } from '@heroicons/react/24/outline';
 import logo from '../assets/logo.png';
 import { NavLink } from 'react-router-dom';
 
 export default function DokterSidebar() {
   return (
-    <div className="w-72 h-screen fixed p-4">
+    <div className="w-full h-full">
         <div className="w-full h-full bg-white rounded-xl shadow-sm py-8 px-6 space-y-8">
             <div className="flex items-center space-x-2">
                 <div>
@@ -49,6 +49,17 @@ export default function DokterSidebar() {
                             <QueueListIcon className="w-6" /> 
                             <span>
                                 Queue
+                            </span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/dokter/chat"
+                            className={({ isActive }) => (isActive ? 'flex px-2.5 py-3 space-x-2 bg-[#d92527] rounded-lg text-white' : 'flex px-2.5 py-3 space-x-2 hover:bg-[#d92527] hover:rounded-lg hover:text-white')}
+                        >
+                            <ChatBubbleLeftIcon className="w-6" /> 
+                            <span>
+                                Chat
                             </span>
                         </NavLink>
                     </li>
