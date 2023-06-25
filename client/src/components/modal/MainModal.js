@@ -2,7 +2,6 @@ import { Backdrop, Box, Fade, Modal } from '@mui/material'
 import PropTypes from 'prop-types'
 
 const MainModal = ({ width, open, modalToggle, children }) => {
-    
     const style = {
         position: 'absolute',
         top: '50%',

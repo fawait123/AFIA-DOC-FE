@@ -1,19 +1,26 @@
 import { Close } from '@mui/icons-material'
-import { Drawer, IconButton, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material'
+import {
+    Drawer,
+    IconButton,
+    List,
+    ListItem,
+    ListItemText,
+    Toolbar,
+    Typography,
+} from '@mui/material'
 import PropTypes from 'prop-types'
 import { Link, useLocation } from 'react-router-dom'
 
 const Sidebar = ({ pages, open, drawerToggle }) => {
-    
     const location = useLocation()
 
     const isActiveLink = (path) => {
-        return location.pathname === '/'+path
+        return location.pathname === path
     }
 
     return (
         <Drawer
-            anchor='left'
+            anchor="left"
             open={open}
             onClose={drawerToggle}
             sx={{
@@ -25,10 +32,14 @@ const Sidebar = ({ pages, open, drawerToggle }) => {
                 },
             }}
         >
-            <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Typography sx={{ fontWeight: 600 }}>
-                    Menu
-                </Typography>
+            <Toolbar
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                }}
+            >
+                <Typography sx={{ fontWeight: 600 }}>Menu</Typography>
                 <IconButton onClick={drawerToggle}>
                     <Close />
                 </IconButton>
@@ -49,13 +60,15 @@ const Sidebar = ({ pages, open, drawerToggle }) => {
                 </ListItem>
                 {pages.map((page) => (
                     <ListItem key={page.name}>
-                        <Link 
+                        <Link
                             to={page.path}
                             style={{
                                 width: '100%',
                                 display: 'flex',
                                 textDecoration: 'none',
-                                color: isActiveLink(page.path) ? '#d92527' : '#000000',
+                                color: isActiveLink(page.path)
+                                    ? '#d92527'
+                                    : '#000000',
                             }}
                         >
                             <ListItemText primary={page.name} />
@@ -70,7 +83,7 @@ const Sidebar = ({ pages, open, drawerToggle }) => {
 Sidebar.propTypes = {
     pages: PropTypes.array,
     open: PropTypes.bool,
-    drawerToggle: PropTypes.func
+    drawerToggle: PropTypes.func,
 }
 
 export default Sidebar

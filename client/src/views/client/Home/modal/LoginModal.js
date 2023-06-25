@@ -55,7 +55,11 @@ const LoginModal = ({ open, modalToggle, registerToggle }) => {
     }
 
     return (
-        <MainModal width={{ xs: 300, md: 400 }} open={open} modalToggle={modalToggle}>
+        <MainModal
+            width={{ xs: 300, md: 400 }}
+            open={open}
+            modalToggle={modalToggle}
+        >
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Card
                     variant="outlined"
@@ -145,11 +149,20 @@ const LoginModal = ({ open, modalToggle, registerToggle }) => {
                     paddingX: 4,
                 }}
             >
-                <Typography sx={{ fontSize: { xs: 12, md: 16 } }} marginRight={1}>{"Don't have account?"}</Typography>
+                <Typography
+                    sx={{ fontSize: { xs: 12, md: 16 } }}
+                    marginRight={1}
+                >
+                    {"Don't have account?"}
+                </Typography>
                 <Link
                     onClick={registerToggle}
                     underline="always"
-                    sx={{ color: 'blue', cursor: 'pointer', fontSize: { xs: 12, md: 16 } }}
+                    sx={{
+                        color: 'blue',
+                        cursor: 'pointer',
+                        fontSize: { xs: 12, md: 16 },
+                    }}
                 >
                     Sign Up
                 </Link>

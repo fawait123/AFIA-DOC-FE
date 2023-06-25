@@ -8,11 +8,11 @@ import Footer from './Footer'
 import Sidebar from './Sidebar'
 
 const pages = [
-    { name: 'Artikel Kesehatan', path: 'artikel-kesehatan' },
-    { name: 'Cari Dokter', path: 'cari-dokter' },
-    { name: 'Booking Dokter', path: 'booking-dokter' },
-    { name: 'Chat Dokter', path: 'chat-dokter' },
-    { name: 'Beli Obat', path: 'beli-obat' },
+    { name: 'Artikel Kesehatan', path: '/artikel-kesehatan' },
+    { name: 'Cari Dokter', path: '/cari-dokter' },
+    { name: 'Ambulance', path: '/booking-ambulance' },
+    { name: 'Chat Dokter', path: '/chat-dokter' },
+    { name: 'Beli Obat', path: '/beli-obat' },
 ]
 
 const MainLayout = ({ children }) => {
@@ -56,7 +56,11 @@ const MainLayout = ({ children }) => {
                 sx={{ bgcolor: '#FFFFFF', borderBottom: '1px #E0E0E0 solid' }}
             >
                 <Toolbar>
-                    <Header pages={pages} loginToggle={handleModalLogin} drawerToggle={handleDrawer} />
+                    <Header
+                        pages={pages}
+                        loginToggle={handleModalLogin}
+                        drawerToggle={handleDrawer}
+                    />
                 </Toolbar>
             </AppBar>
 
@@ -74,7 +78,9 @@ const MainLayout = ({ children }) => {
                 loginToggle={handleModalLogin}
             />
 
-            <Box sx={{ minHeight: '100vh', marginTop: `${appBarHeight}px` }}>{children}</Box>
+            <Box sx={{ minHeight: '100vh', marginTop: `${appBarHeight}px` }}>
+                {children}
+            </Box>
 
             <Footer />
         </>

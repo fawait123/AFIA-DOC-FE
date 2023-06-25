@@ -16,11 +16,7 @@ const pages = [
 ]
 
 const Test = () => {
-    return (
-        <TestLayout pages={pages}>
-            Pijemin
-        </TestLayout>
-    )
+    return <TestLayout pages={pages}>Pijemin</TestLayout>
 }
 
 export default Test

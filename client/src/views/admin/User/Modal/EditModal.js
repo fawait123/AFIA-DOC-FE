@@ -4,15 +4,16 @@ import { Box, Button, TextField, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 
 const EditModal = ({ open, modalToggle, id, onSuccess }) => {
-
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
     const getData = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/user/edit/'+id)
+            const response = await fetch(
+                'http://127.0.0.1:8000/api/user/edit/' + id
+            )
             const data = await response.json()
             setName(data.data.name)
             setEmail(data.data.email)
@@ -32,17 +33,20 @@ const EditModal = ({ open, modalToggle, id, onSuccess }) => {
         const specialistData = { id, name, username, password, email }
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/user/edit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(specialistData),
-            })
+            const response = await fetch(
+                'http://127.0.0.1:8000/api/user/edit',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(specialistData),
+                }
+            )
 
             const data = await response.json()
 
-            if(data.status == true) {
+            if (data.status == true) {
                 alert('data berhasil masuk')
             }
 
@@ -63,7 +67,7 @@ const EditModal = ({ open, modalToggle, id, onSuccess }) => {
             </Box>
             <Box paddingY={3}>
                 <form onSubmit={handleSubmit}>
-                <TextField
+                    <TextField
                         id="name"
                         label="Nama"
                         placeholder="Nama Anda"
@@ -128,7 +132,7 @@ EditModal.propTypes = {
     open: PropTypes.bool,
     modalToggle: PropTypes.func,
     id: PropTypes.number,
-    onSuccess: PropTypes.func
+    onSuccess: PropTypes.func,
 }
 
 export default EditModal

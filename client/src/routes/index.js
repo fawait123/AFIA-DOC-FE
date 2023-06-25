@@ -8,6 +8,15 @@ import AddDoctor from 'views/admin/Doctor/Add'
 import Test from 'views/test'
 import UserAdmin from 'views/admin/User'
 import ArticlePage from 'views/client/Article'
+import FindDoctor from 'views/client/FindDoctor'
+import ChatDoctor from 'views/client/ChatDoctor'
+import DashboardDoctor from 'views/doctor/Dashboard'
+import PracticeDoctor from 'views/doctor/Practice'
+import AppointmentDoctor from 'views/doctor/Appointment'
+import ChatForDoctor from 'views/doctor/Chat'
+import PatientDoctor from 'views/doctor/Patient'
+import TestDashboardLayout from 'layout/TestDashboardLayout'
+import Ambulance from 'views/client/Ambulance'
 
 const AppRoutes = () => {
     return (
@@ -15,7 +24,15 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/artikel-kesehatan" element={<ArticlePage />} />
+                <Route path="/cari-dokter" element={<FindDoctor />} />
+                <Route path="/booking-ambulance" element={<Ambulance />} />
+                <Route path="/chat-dokter" element={<ChatDoctor />} />
+                <Route path="/beli-obat" element={<ArticlePage />} />
                 <Route path="/test" element={<Test />} />
+                <Route
+                    path="/test/dashboard"
+                    element={<TestDashboardLayout />}
+                />
                 <Route
                     path="/admin/dashboard"
                     element={
@@ -67,6 +84,51 @@ const AppRoutes = () => {
                         <PrivateRoutes>
                             {' '}
                             <DashboardAdmin />{' '}
+                        </PrivateRoutes>
+                    }
+                />
+                <Route
+                    path="/dokter/dashboard"
+                    element={
+                        <PrivateRoutes>
+                            {' '}
+                            <DashboardDoctor />{' '}
+                        </PrivateRoutes>
+                    }
+                />
+                <Route
+                    path="/dokter/praktek"
+                    element={
+                        <PrivateRoutes>
+                            {' '}
+                            <PracticeDoctor />{' '}
+                        </PrivateRoutes>
+                    }
+                />
+                <Route
+                    path="/dokter/appointment"
+                    element={
+                        <PrivateRoutes>
+                            {' '}
+                            <AppointmentDoctor />{' '}
+                        </PrivateRoutes>
+                    }
+                />
+                <Route
+                    path="/dokter/chat"
+                    element={
+                        <PrivateRoutes>
+                            {' '}
+                            <ChatForDoctor />{' '}
+                        </PrivateRoutes>
+                    }
+                />
+                <Route
+                    path="/dokter/pasien"
+                    element={
+                        <PrivateRoutes>
+                            {' '}
+                            <PatientDoctor />{' '}
                         </PrivateRoutes>
                     }
                 />

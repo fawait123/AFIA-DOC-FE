@@ -36,7 +36,7 @@ const Header = ({ pages, loginToggle, drawerToggle }) => {
     const location = useLocation()
 
     const isActiveLink = (path) => {
-        return location.pathname === '/'+path
+        return location.pathname === path
     }
 
     return (
@@ -71,7 +71,9 @@ const Header = ({ pages, loginToggle, drawerToggle }) => {
                                     marginX: 2,
                                     textDecoration: 'none',
                                     fontSize: '14px',
-                                    color: isActiveLink(page.path) ? '#d92527' : '#000000',
+                                    color: isActiveLink(page.path)
+                                        ? '#d92527'
+                                        : '#000000',
                                 }}
                             >
                                 {page.name}
@@ -87,7 +89,14 @@ const Header = ({ pages, loginToggle, drawerToggle }) => {
                         variant="contained"
                         color="error"
                     >
-                        <Typography sx={{ color: '#FFFFFF', fontSize: { xs: 10, md: 14 } }}>LOGIN</Typography>
+                        <Typography
+                            sx={{
+                                color: '#FFFFFF',
+                                fontSize: { xs: 10, md: 14 },
+                            }}
+                        >
+                            LOGIN
+                        </Typography>
                     </Button>
                 ) : (
                     <>
@@ -155,7 +164,7 @@ const Header = ({ pages, loginToggle, drawerToggle }) => {
 Header.propTypes = {
     pages: PropTypes.array,
     loginToggle: PropTypes.func,
-    drawerToggle: PropTypes.func
+    drawerToggle: PropTypes.func,
 }
 
 export default Header

@@ -4,11 +4,10 @@ import { Box, Button, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
 
 const AddModal = ({ open, modalToggle, onSuccess }) => {
-
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
     const is_active = useState(true)
 
     const handleSubmit = async (e) => {
@@ -17,17 +16,20 @@ const AddModal = ({ open, modalToggle, onSuccess }) => {
         const specialistData = { name, email, username, password, is_active }
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/user/store', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(specialistData),
-            })
+            const response = await fetch(
+                'http://127.0.0.1:8000/api/user/store',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(specialistData),
+                }
+            )
 
             const data = await response.json()
 
-            if(data.status == true) {
+            if (data.status == true) {
                 alert('data berhasil masuk')
             }
 
@@ -108,7 +110,7 @@ const AddModal = ({ open, modalToggle, onSuccess }) => {
 AddModal.propTypes = {
     open: PropTypes.bool,
     modalToggle: PropTypes.func,
-    onSuccess: PropTypes.func
+    onSuccess: PropTypes.func,
 }
 
 export default AddModal

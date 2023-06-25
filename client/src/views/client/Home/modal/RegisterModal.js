@@ -24,7 +24,11 @@ const RegisterModal = ({ open, modalToggle, loginToggle }) => {
     console.log(name + ' ' + email + ' ' + username + ' ' + password)
 
     return (
-        <MainModal width={{ xs: 300, md: 400 }} open={open} modalToggle={modalToggle}>
+        <MainModal
+            width={{ xs: 300, md: 400 }}
+            open={open}
+            modalToggle={modalToggle}
+        >
             <Box
                 sx={{
                     display: 'flex',
@@ -168,11 +172,20 @@ const RegisterModal = ({ open, modalToggle, loginToggle }) => {
                     paddingX: 4,
                 }}
             >
-                <Typography sx={{ fontSize: { xs: 12, md: 16 } }} marginRight={1}>Already have account?</Typography>
+                <Typography
+                    sx={{ fontSize: { xs: 12, md: 16 } }}
+                    marginRight={1}
+                >
+                    Already have account?
+                </Typography>
                 <Link
                     onClick={loginToggle}
                     underline="always"
-                    sx={{ color: 'blue', cursor: 'pointer', fontSize: { xs: 12, md: 16 } }}
+                    sx={{
+                        color: 'blue',
+                        cursor: 'pointer',
+                        fontSize: { xs: 12, md: 16 },
+                    }}
                 >
                     Sign In
                 </Link>

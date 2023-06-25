@@ -1,8 +1,17 @@
-import PropTypes from "prop-types"
-import { Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from "@mui/material"
-import LogoSection from "layout/MainLayout/LogoSection"
-import { Menu as MenuIcon } from "@mui/icons-material"
-import { Link } from "react-router-dom"
+import PropTypes from 'prop-types'
+import {
+    Drawer,
+    IconButton,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Toolbar,
+} from '@mui/material'
+import LogoSection from 'layout/MainLayout/LogoSection'
+import { Menu as MenuIcon } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 
 const Sidebar = ({ pages, open, drawerToggle }) => {
     return (
@@ -19,7 +28,13 @@ const Sidebar = ({ pages, open, drawerToggle }) => {
                 },
             }}
         >
-            <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Toolbar
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                }}
+            >
                 <LogoSection />
                 <IconButton onClick={drawerToggle}>
                     <MenuIcon />
@@ -52,7 +67,7 @@ const Sidebar = ({ pages, open, drawerToggle }) => {
 Sidebar.propTypes = {
     pages: PropTypes.array,
     open: PropTypes.bool,
-    drawerToggle: PropTypes.func
+    drawerToggle: PropTypes.func,
 }
 
 export default Sidebar

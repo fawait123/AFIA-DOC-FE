@@ -4,12 +4,13 @@ import { Box, Button, TextField, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 
 const EditModal = ({ open, modalToggle, id, onSuccess }) => {
-
-    const [name, setName] = useState("")
+    const [name, setName] = useState('')
 
     const getData = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/spesialis/edit/'+id)
+            const response = await fetch(
+                'http://127.0.0.1:8000/api/spesialis/edit/' + id
+            )
             const data = await response.json()
             setName(data.data.name)
         } catch (error) {
@@ -27,17 +28,20 @@ const EditModal = ({ open, modalToggle, id, onSuccess }) => {
         const specialistData = { id, name }
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/spesialis/edit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(specialistData),
-            })
+            const response = await fetch(
+                'http://127.0.0.1:8000/api/spesialis/edit',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(specialistData),
+                }
+            )
 
             const data = await response.json()
 
-            if(data.status == true) {
+            if (data.status == true) {
                 alert('data berhasil masuk')
             }
 
@@ -91,7 +95,7 @@ EditModal.propTypes = {
     open: PropTypes.bool,
     modalToggle: PropTypes.func,
     id: PropTypes.number,
-    onSuccess: PropTypes.func
+    onSuccess: PropTypes.func,
 }
 
 export default EditModal
